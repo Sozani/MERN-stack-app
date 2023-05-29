@@ -68,9 +68,9 @@
   font-size: 13px;
 }
 .vl {
-  width: 4px;
-  height: 350%;
-  border: 2px solid var(--hrColor);
+  width: 0;
+  height: 50px;
+  border-left: 2px solid var(--hrColor);
 }
 .ProfileCard > span {
   font-weight: bold;
