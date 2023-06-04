@@ -5,6 +5,7 @@ import Noti from "../../img/noti.png";
 import Comment from "../../img/comment.png";
 import { UilSetting } from "@iconscout/react-unicons";
 import "./RightSide.css";
+import TrendCard from "../TrendCard/TrendCard";
 const RightSide = () => {
   return (
     <div className="RightSide">
@@ -14,6 +15,7 @@ const RightSide = () => {
         <img src={Noti} alt="" />
         <img src={Comment} alt="" />
       </div>
+      <TrendCard />
     </div>
   );
 };
