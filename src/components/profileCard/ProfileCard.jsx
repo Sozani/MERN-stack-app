@@ -38,7 +38,7 @@ const ProfileCard = () => {
         </div>
         <hr />
       </div>
-      <span>My Profile</span>
+      {profilePage ? "" : <span>My Profile</span>}
     </div>
   );
 };
