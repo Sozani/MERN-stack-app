@@ -1,7 +1,7 @@
 import { Modal, useMantineTheme } from "@mantine/core";
 import PostShare from "../PostShare/PostShare";
 
-function ProfileModal({ modalOpened, setModalOpened }) {
+function ShareModal({ modalOpened, setModalOpened }) {
   const theme = useMantineTheme();
 
   return (
@@ -22,4 +22,4 @@ function ProfileModal({ modalOpened, setModalOpened }) {
   );
 }
 
-export default ProfileModal;
+export default ShareModal;
