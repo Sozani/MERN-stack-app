@@ -21,3 +21,13 @@ export const getPost = async (req, res) => {
     res.status(500).json(error);
   }
 };
+//Update post
+export const updatePost = async (req, res) => {
+  const postId = req.params.id;
+  const { userId } = req.body;
+  try {
+    const post = await PostModel.findById(postId);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
