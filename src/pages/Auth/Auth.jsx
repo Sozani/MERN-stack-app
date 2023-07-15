@@ -12,13 +12,28 @@ const Auth = () => {
     username: "",
     confirmpass: "",
   });
-  const [confirmPass, setConfirmPass] = useState(false);
+  const [confirmPass, setConfirmPass] = useState(true);
   const handleChange = (e) => {
     // rather than put every input separately with this e.target.name  in blow we can use this function for all of our inputs
     setData({ ...data, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSignUp) {
+      if (data.password !== data.confirmpass) {
+        setConfirmPass(false);
+      }
+    }
+  };
+  const resetForm = () => {
+    setConfirmPass(true);
+    setData({
+      firstname: "",
+      lastname: "",
+      password: "",
+      username: "",
+      confirmpass: "",
+    });
   };
   return (
     <div className="Auth">
@@ -97,6 +112,7 @@ const Auth = () => {
               style={{ fontSize: "12px", cursor: "pointer" }}
               onClick={() => {
                 setIsSignUp((prev) => !prev);
+                resetForm();
               }}
             >
               {isSignUp
