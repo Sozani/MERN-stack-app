@@ -3,7 +3,7 @@ import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   return (
     <div className="Auth">
       {/* Left side */}
