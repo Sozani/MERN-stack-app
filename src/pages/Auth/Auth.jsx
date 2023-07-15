@@ -4,6 +4,7 @@ import Logo from "../../img/logo.png";
 const Auth = () => {
   return (
     <div className="Auth">
+      {/* Left side */}
       <div className="a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
@@ -11,46 +12,101 @@ const Auth = () => {
           <h6>Explore the ideas throughout the world</h6>
         </div>
       </div>
-      <h1>form</h1>
+      {/* right side */}
+      <div className="a-right">
+        <form className="infoForm authForm">
+          <h3>Sign up</h3>
+
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              className="infoInput"
+              name="firstname"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="infoInput"
+              name="lastname"
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              className="infoInput"
+              name="username"
+              placeholder="Usernames"
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              className="infoInput"
+              name="password"
+              placeholder="Password"
+            />
+            <input
+              type="text"
+              className="infoInput"
+              name="confirmpass"
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <div>
+            <span style={{ fontSize: "12px" }}>
+              Already have an account. Login!
+            </span>
+          </div>
+          <button className="button infoButton" type="submit">
+            Signup
+          </button>
+        </form>
+      </div>
+      {/* <h1>form</h1> */}
       {/* <SignUp /> */}
-      <LogIn />
+      {/* <LogIn /> */}
     </div>
   );
 };
-function LogIn() {
-  return (
-    <div className="a-right">
-      <form className="infoForm authForm">
-        <h3>Log In</h3>
+// he delete this under if the project come over delete it
+// function LogIn() {
+//   return (
+//     <div className="a-right">
+//       <form className="infoForm authForm">
+//         <h3>Log In</h3>
 
-        <div>
-          <input
-            type="text"
-            placeholder="Username"
-            className="infoInput"
-            name="username"
-          />
-        </div>
+//         <div>
+//           <input
+//             type="text"
+//             placeholder="Username"
+//             className="infoInput"
+//             name="username"
+//           />
+//         </div>
 
-        <div>
-          <input
-            type="password"
-            className="infoInput"
-            placeholder="Password"
-            name="password"
-          />
-        </div>
+//         <div>
+//           <input
+//             type="password"
+//             className="infoInput"
+//             placeholder="Password"
+//             name="password"
+//           />
+//         </div>
 
-        <div>
-          <span style={{ fontSize: "12px" }}>
-            Don't have an account Sign up
-          </span>
-          <button className="button infoButton">Login</button>
-        </div>
-      </form>
-    </div>
-  );
-}
+//         <div>
+//           <span style={{ fontSize: "12px" }}>
+//             Don't have an account Sign up
+//           </span>
+//           <button className="button infoButton">Login</button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
 
 export default Auth;
 function SignUp() {
