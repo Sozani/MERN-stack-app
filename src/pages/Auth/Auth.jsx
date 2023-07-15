@@ -18,28 +18,29 @@ const Auth = () => {
       <div className="a-right">
         <form className="infoForm authForm">
           <h3>{isSignUp ? "Sign Up" : "Log In"}</h3>
-
-          <div>
-            <input
-              type="text"
-              placeholder="First Name"
-              className="infoInput"
-              name="firstname"
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="infoInput"
-              name="lastname"
-            />
-          </div>
+          {isSignUp && (
+            <div>
+              <input
+                type="text"
+                placeholder="First Name"
+                className="infoInput"
+                name="firstname"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="infoInput"
+                name="lastname"
+              />
+            </div>
+          )}
 
           <div>
             <input
               type="text"
               className="infoInput"
               name="username"
-              placeholder="Usernames"
+              placeholder="Username"
             />
           </div>
 
@@ -50,21 +51,25 @@ const Auth = () => {
               name="password"
               placeholder="Password"
             />
-            <input
-              type="text"
-              className="infoInput"
-              name="confirmpass"
-              placeholder="Confirm Password"
-            />
+            {isSignUp && (
+              <input
+                type="text"
+                className="infoInput"
+                name="confirmpass"
+                placeholder="Confirm Password"
+              />
+            )}
           </div>
 
           <div>
             <span style={{ fontSize: "12px" }}>
-              Already have an account. Login!
+              {isSignUp
+                ? "Already have an account. Login!"
+                : "Don't have an account ? Sign Up"}
             </span>
           </div>
           <button className="button infoButton" type="submit">
-            Signup
+            {isSignUp ? "Sign Up" : "Login In"}
           </button>
         </form>
       </div>
@@ -74,41 +79,6 @@ const Auth = () => {
     </div>
   );
 };
-// he delete this under if the project come over delete it
-// function LogIn() {
-//   return (
-//     <div className="a-right">
-//       <form className="infoForm authForm">
-//         <h3>Log In</h3>
-
-//         <div>
-//           <input
-//             type="text"
-//             placeholder="Username"
-//             className="infoInput"
-//             name="username"
-//           />
-//         </div>
-
-//         <div>
-//           <input
-//             type="password"
-//             className="infoInput"
-//             placeholder="Password"
-//             name="password"
-//           />
-//         </div>
-
-//         <div>
-//           <span style={{ fontSize: "12px" }}>
-//             Don't have an account Sign up
-//           </span>
-//           <button className="button infoButton">Login</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
 
 export default Auth;
 function SignUp() {
@@ -162,7 +132,7 @@ function SignUp() {
           </span>
         </div>
         <button className="button infoButton" type="submit">
-          Signup
+          Sign up
         </button>
       </form>
     </div>
