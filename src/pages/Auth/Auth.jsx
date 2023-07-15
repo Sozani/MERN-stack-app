@@ -3,7 +3,15 @@ import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
 const Auth = () => {
+  // HHHHHHHHHHHHHHHHHHHHHH  If you change useState to false sign in will be appear.
   const [isSignUp, setIsSignUp] = useState(true);
+  const [data, setData] = useState({
+    firstname: "",
+    lastname: "",
+    password: "",
+    username: "",
+  });
+  const handleChange = (e) => {};
   return (
     <div className="Auth">
       {/* Left side */}
@@ -62,7 +70,12 @@ const Auth = () => {
           </div>
 
           <div>
-            <span style={{ fontSize: "12px" }}>
+            <span
+              style={{ fontSize: "12px", cursor: "pointer" }}
+              onClick={() => {
+                setIsSignUp((prev) => !prev);
+              }}
+            >
               {isSignUp
                 ? "Already have an account. Login!"
                 : "Don't have an account ? Sign Up"}
@@ -73,68 +86,8 @@ const Auth = () => {
           </button>
         </form>
       </div>
-      {/* <h1>form</h1> */}
-      {/* <SignUp /> */}
-      {/* <LogIn /> */}
     </div>
   );
 };
 
 export default Auth;
-function SignUp() {
-  return (
-    <div className="a-right">
-      <form className="infoForm authForm">
-        <h3>Sign up</h3>
-
-        <div>
-          <input
-            type="text"
-            placeholder="First Name"
-            className="infoInput"
-            name="firstname"
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            className="infoInput"
-            name="lastname"
-          />
-        </div>
-
-        <div>
-          <input
-            type="text"
-            className="infoInput"
-            name="username"
-            placeholder="Usernames"
-          />
-        </div>
-
-        <div>
-          <input
-            type="text"
-            className="infoInput"
-            name="password"
-            placeholder="Password"
-          />
-          <input
-            type="text"
-            className="infoInput"
-            name="confirmpass"
-            placeholder="Confirm Password"
-          />
-        </div>
-
-        <div>
-          <span style={{ fontSize: "12px" }}>
-            Already have an account. Login!
-          </span>
-        </div>
-        <button className="button infoButton" type="submit">
-          Sign up
-        </button>
-      </form>
-    </div>
-  );
-}
