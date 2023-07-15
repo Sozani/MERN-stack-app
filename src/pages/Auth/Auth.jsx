@@ -10,8 +10,16 @@ const Auth = () => {
     lastname: "",
     password: "",
     username: "",
+    confirmpass: "",
   });
-  const handleChange = (e) => {};
+  const [confirmPass, setConfirmPass] = useState(false);
+  const handleChange = (e) => {
+    // rather than put every input separately with this e.target.name  in blow we can use this function for all of our inputs
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="Auth">
       {/* Left side */}
@@ -24,7 +32,7 @@ const Auth = () => {
       </div>
       {/* right side */}
       <div className="a-right">
-        <form className="infoForm authForm">
+        <form className="infoForm authForm" onSubmit={handleSubmit}>
           <h3>{isSignUp ? "Sign Up" : "Log In"}</h3>
           {isSignUp && (
             <div>
@@ -33,12 +41,14 @@ const Auth = () => {
                 placeholder="First Name"
                 className="infoInput"
                 name="firstname"
+                onChange={handleChange}
               />
               <input
                 type="text"
                 placeholder="Last Name"
                 className="infoInput"
                 name="lastname"
+                onChange={handleChange}
               />
             </div>
           )}
@@ -49,26 +59,39 @@ const Auth = () => {
               className="infoInput"
               name="username"
               placeholder="Username"
+              onChange={handleChange}
             />
           </div>
 
           <div>
             <input
-              type="text"
+              type="password"
               className="infoInput"
               name="password"
               placeholder="Password"
+              onChange={handleChange}
             />
             {isSignUp && (
               <input
-                type="text"
+                type="password"
                 className="infoInput"
                 name="confirmpass"
                 placeholder="Confirm Password"
+                onChange={handleChange}
               />
             )}
           </div>
-
+          <span
+            style={{
+              display: confirmPass ? "none" : "block",
+              color: "red",
+              fontSize: "12px",
+              alignSelf: "flex-end",
+              marginRight: "5px",
+            }}
+          >
+            *Confirm Password is not same
+          </span>
           <div>
             <span
               style={{ fontSize: "12px", cursor: "pointer" }}
