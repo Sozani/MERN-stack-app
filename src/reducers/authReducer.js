@@ -6,6 +6,7 @@ const authReducer = (
     case "AUTH-START":
       return { ...state, loading: true, error: false };
     case "AUTH-SUCCESS":
+      localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
       return { ...state, authData: action.data, loading: false, error: false };
     case "AUTH-FAIL":
       return {
@@ -17,3 +18,4 @@ const authReducer = (
       return state;
   }
 };
+export default authReducer;
