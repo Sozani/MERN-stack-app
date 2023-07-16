@@ -2,8 +2,10 @@ import React from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 const Auth = () => {
   // HHHHHHHHHHHHHHHHHHHHHH  If you change useState to false sign in will be appear.
+  const dispatch = useDispatch();
   const [isSignUp, setIsSignUp] = useState(true);
   const [data, setData] = useState({
     firstname: "",
@@ -20,11 +22,14 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignUp) {
-      if (data.password !== data.confirmpass) {
-        setConfirmPass(false);
-      }
+      data.password === data.confirmpass
+        ? dispatch(signUp(data))
+        : setConfirmPass(false);
+    } else {
+      dispatch(logIn(data));
     }
   };
+
   const resetForm = () => {
     setConfirmPass(true);
     setData({
