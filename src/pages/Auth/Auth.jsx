@@ -3,6 +3,7 @@ import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { logIn } from "../../api/AuthAction";
 const Auth = () => {
   // HHHHHHHHHHHHHHHHHHHHHH  If you change useState to false sign in will be appear.
   const dispatch = useDispatch();

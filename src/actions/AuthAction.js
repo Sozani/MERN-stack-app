@@ -5,6 +5,7 @@ export const logIn = (formData) => async (dispatch) => {
     const { data } = await AuthApi.logIn(formData);
     dispatch({ type: "AUTH-SUCCESS", data: data });
   } catch (error) {
+    dispatch({ type: "AUTH-FAIL" });
     console.log(error);
   }
 };
