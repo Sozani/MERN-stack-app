@@ -139,7 +139,7 @@ const Auth = () => {
             type="submit"
             disabled={loading}
           >
-            {loading ? "loading..." : isSignUp ? "Sign Up" : "Login In"}
+            {loading ? "loading..." : isSignUp ? "Sign Up" : "Log In"}
           </button>
         </form>
       </div>
