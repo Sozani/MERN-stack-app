@@ -2,12 +2,15 @@ import React from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { logIn } from "../../api/AuthAction";
-import { signUp } from "../../api/AuthAction";
+import { useDispatch, useSelector } from "react-redux";
+import { logIn } from "../../actions/AuthAction";
+import { signUp } from "../../actions/AuthAction";
+
 const Auth = () => {
   // HHHHHHHHHHHHHHHHHHHHHH  If you change useState to false sign in will be appear.
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.authReducer.loading);
+  console.log(loading);
   const [isSignUp, setIsSignUp] = useState(true);
   const [data, setData] = useState({
     firstname: "",
@@ -131,8 +134,12 @@ const Auth = () => {
                 : "Don't have an account ? Sign Up"}
             </span>
           </div>
-          <button className="button infoButton" type="submit">
-            {isSignUp ? "Sign Up" : "Login In"}
+          <button
+            className="button infoButton"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "loading..." : isSignUp ? "Sign Up" : "Login In"}
           </button>
         </form>
       </div>

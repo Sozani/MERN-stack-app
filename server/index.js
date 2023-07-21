@@ -5,12 +5,14 @@ import AuthRoute from "./Routes/AuthRoute.js";
 import PostRoute from "./Routes/PostRoute.js";
 import UserRoute from "./Routes/UserRoute.js";
 import dotenv from "dotenv";
+import cors from "cors";
 //Routes
 const app = express();
 // app.use(express.json());
 //MiddleWare
 app.use(bodyParser.json({ limit: "30mb", extended: "true" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: "true" }));
+app.use(cors());
 dotenv.config();
 // Establish the MongoDB connection
 mongoose.set("strictQuery", false);
