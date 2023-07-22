@@ -12,9 +12,11 @@ const Posts = () => {
   }, []);
   return (
     <div className="Posts">
-      {posts.map((post, id) => {
-        return <Post data={post} id={id} />;
-      })}
+      {loading
+        ? "Fetching data ..."
+        : posts.map((post, id) => {
+            return <Post data={post} id={id} />;
+          })}
     </div>
   );
 };

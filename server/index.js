@@ -9,6 +9,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 //Routes
 const app = express();
+// to serve images for public
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
 // app.use(express.json());
 //MiddleWare
 app.use(bodyParser.json({ limit: "30mb", extended: "true" }));
