@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import AuthRoute from "./Routes/AuthRoute.js";
 import PostRoute from "./Routes/PostRoute.js";
 import UserRoute from "./Routes/UserRoute.js";
+import UploadRoute from "./Routes/UploadRoute.js";
 import dotenv from "dotenv";
 import cors from "cors";
 //Routes
@@ -36,3 +37,4 @@ mongoose
 app.use("/auth", AuthRoute);
 app.use("/user", UserRoute);
 app.use("/post", PostRoute);
+app.use("/upload", UploadRoute);
