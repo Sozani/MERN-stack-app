@@ -72,7 +72,7 @@ export const likePost = async (req, res) => {
   }
 };
 // Get timeline posts
-export const getTimeLinePosts = async (req, res) => {
+export const getTimelinePosts = async (req, res) => {
   const userId = req.params.id;
   try {
     const currentUserPosts = await PostModel.find({ userId: userId });
