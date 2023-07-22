@@ -1,5 +1,5 @@
 const postReducer = (
-  state = { posts: null, loading: false, error: false, uploading: false },
+  state = { posts: [], loading: false, error: false, uploading: false },
   action
 ) => {
   switch (action.type) {
