@@ -16,18 +16,21 @@ const PostShare = () => {
   const dispatch = useDispatch();
   const imageRef = useRef();
   const { user } = useSelector((state) => state.authReducer.authData);
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+  // handle Image Change
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
       setImage(img);
     }
   };
+  // Reset Post Share
   const resetShare = () => {
     setImage(null);
     desc.current.value = "";
   };
   // handle post upload
-  const handleSubmit = async (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
     //post data
     const newPost = {
@@ -54,7 +57,15 @@ const PostShare = () => {
 
   return (
     <div className="PostShare">
-      <img src={ProfileImage} alt="" className="src" />
+      <img
+        src={
+          user.profilePicture
+            ? serverPublic + user.profilePicture
+            : serverPublic + "defaultProfile.png"
+        }
+        alt="Profile"
+        className="src"
+      />
       <div>
         <input type="text" placeholder="What's happening" ref={desc} required />
         <div className="postOptions">
@@ -79,7 +90,7 @@ const PostShare = () => {
             shedule
           </div>
           <button
-            onClick={handleSubmit}
+            onClick={handleUpload}
             className="button ps-button"
             disabled={loading}
           >
@@ -106,7 +117,7 @@ const PostShare = () => {
                 setImage(null);
               }}
             />
-            <img src={URL.createObjectURL(image)} alt="" />
+            <img src={URL.createObjectURL(image)} alt="preview" />
           </div>
         )}
       </div>
