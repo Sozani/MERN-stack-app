@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cover from "../../img/cover.jpg";
-import Profile from "../../img/profileImg.jpg";
+// import Cover from "../../img/cover.jpg";
+// import Profile from "../../img/profileImg.jpg";
 import { useSelector } from "react-redux";
 import "./ProfileCard.css";
-const ProfileCard = () => {
+const ProfileCard = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
+  const posts = useSelector((state) => state.postReducer.posts);
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
-  const profilePage = false;
+
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
@@ -47,11 +48,13 @@ const ProfileCard = () => {
             <span>{user.followers.length}</span>
             <span>Followers</span>
           </div>
-          {profilePage && (
+          {location === "profilePage" && (
             <>
               <div className="vl"></div>
               <div className="follow">
-                <span>3</span>
+                <span>
+                  {posts.filter((post) => post.userId === user._id.length)}
+                </span>
                 <span>Posts</span>
               </div>
             </>
@@ -59,7 +62,7 @@ const ProfileCard = () => {
         </div>
         <hr />
       </div>
-      {profilePage ? (
+      {location === "profilePage" ? (
         ""
       ) : (
         <span>
