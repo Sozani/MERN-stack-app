@@ -29,29 +29,33 @@ const InfoCard = () => {
     <div className="InfoCard">
       <div className="infoHead">
         <h4>Profile Info</h4>
-        <div>
-          <UilPen
-            width="2rem"
-            height="1.2rem"
-            onClick={() => setModalOpened(true)}
-          />
-          <ProfileModal
-            modalOpened={modalOpened}
-            setModalOpened={setModalOpened}
-          />
-        </div>
+        {user._id === profileUserId ? (
+          <div>
+            <UilPen
+              width="2rem"
+              height="1.2rem"
+              onClick={() => setModalOpened(true)}
+            />
+            <ProfileModal
+              modalOpened={modalOpened}
+              setModalOpened={setModalOpened}
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className="info">
         <span>
           <b>Status</b>
         </span>
-        <span> In Relationship</span>
+        <span>{profileUser.relationship}</span>
       </div>
 
       <div className="info">
         <span>
-          <b>Lives In</b>
+          <b>{profileUser.livesin}</b>
         </span>
         <span> Multan</span>
       </div>
@@ -59,9 +63,11 @@ const InfoCard = () => {
         <span>
           <b>Works At</b>
         </span>
-        <span> Zeencodeskeeps inst</span>
+        <span>{profileUser.worksAt}</span>
       </div>
-      <button className="button logout-button">Logout</button>
+      <button className="button logout-button" onClick={handleLogOut}>
+        Logout
+      </button>
     </div>
   );
 };
