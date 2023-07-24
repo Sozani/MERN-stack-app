@@ -1,3 +1,4 @@
+import { useAsyncError } from "react-router-dom";
 import * as AuthApi from "../api/AuthRequest.jsx";
 export const logIn = (formData) => async (dispatch) => {
   dispatch({ type: "AUTH-START" });
@@ -18,4 +19,7 @@ export const signUp = (formData) => async (dispatch) => {
     dispatch({ type: "AUTH-FAIL" });
     console.log(error);
   }
+};
+export const logout = () => async (dispatch) => {
+  dispatch({ type: "LOG_OUT" });
 };

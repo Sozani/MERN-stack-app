@@ -7,6 +7,8 @@ import ProfileModal from "../ProfileModel.jsx/ProfileModel";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import * as userApi from "../../api/UserRequests.js";
+import { logout } from "../../actions/AuthAction";
+
 const InfoCard = () => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -25,6 +27,10 @@ const InfoCard = () => {
     };
     fetchProfileUser();
   }, [user]);
+  const handleLogOut = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className="InfoCard">
       <div className="infoHead">
@@ -39,6 +45,7 @@ const InfoCard = () => {
             <ProfileModal
               modalOpened={modalOpened}
               setModalOpened={setModalOpened}
+              data={user}
             />
           </div>
         ) : (
@@ -55,9 +62,9 @@ const InfoCard = () => {
 
       <div className="info">
         <span>
-          <b>{profileUser.livesin}</b>
+          <b>Lives in</b>
         </span>
-        <span> Multan</span>
+        <span> {profileUser.livesIn}</span>
       </div>
       <div className="info">
         <span>
