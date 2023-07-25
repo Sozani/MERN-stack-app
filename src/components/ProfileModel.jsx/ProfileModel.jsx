@@ -18,7 +18,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  //on change Profile image
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
@@ -142,7 +142,11 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
           <input type="file" name="coverImage" onChange={onImageChange} />
         </div>
 
-        <button className="button infoButton" type="submit">
+        <button
+          className="button infoButton"
+          type="submit"
+          onClick={handleSubmit}
+        >
           Update
         </button>
       </form>
