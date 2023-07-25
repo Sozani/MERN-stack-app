@@ -23,8 +23,10 @@ const InfoCard = () => {
       } else {
         const profileUser = await userApi.getUser(profileUserId);
         setProfileUser(profileUser);
+        console.log(profileUser);
       }
     };
+
     fetchProfileUser();
   }, [user]);
   const handleLogOut = () => {
