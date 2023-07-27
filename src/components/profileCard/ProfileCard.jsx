@@ -18,7 +18,7 @@ const ProfileCard = ({ location }) => {
               ? serverPublic + user.coverPicture
               : serverPublic + "defaultCover.jpg"
           }
-          alt=""
+          alt="CoverImage"
         />
         <img
           src={
@@ -26,7 +26,7 @@ const ProfileCard = ({ location }) => {
               ? serverPublic + user.profilePicture
               : serverPublic + "defaultProfile.png"
           }
-          alt=""
+          alt="ProfileImage"
         />
       </div>
       <div className="ProfileName">
@@ -34,26 +34,26 @@ const ProfileCard = ({ location }) => {
           {user.firstname}
           {user.lastname}
         </span>
-        <span>{user.workAt ? user.workAt : "Write about your job"}</span>
+        <span>{user.worksAt ? user.worksAt : "Write about your Yourself"}</span>
       </div>
       <div className="followStatus">
         <hr />
         <div>
           <div className="follow">
-            <span>{user.following.length}</span>
-            <span>Following</span>
+            <span>{user.followers.length}</span>
+            <span>Followers</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>{user.followers.length}</span>
-            <span>Followers</span>
+            <span>{user.following.length}</span>
+            <span>Following</span>
           </div>
           {location === "profilePage" && (
             <>
               <div className="vl"></div>
               <div className="follow">
                 <span>
-                  {posts.filter((post) => post.userId === user._id.length)}
+                  {posts.filter((post) => post.userId === user._id).length}
                 </span>
                 <span>Posts</span>
               </div>

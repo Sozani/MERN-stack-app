@@ -1,4 +1,3 @@
-import React from "react";
 // import ProfileImage from "../../img/profileImg.jpg";
 import "./PostShare.css";
 import { UilScenery } from "@iconscout/react-unicons";
