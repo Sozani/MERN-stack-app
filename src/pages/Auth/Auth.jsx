@@ -5,20 +5,22 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../actions/AuthAction";
 import { signUp } from "../../actions/AuthAction";
-
+import { useNavigate } from "react-router-dom";
 const Auth = () => {
   // HHHHHHHHHHHHHHHHHHHHHH  If you change useState to false sign in will be appear.
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => state.authReducer.loading);
-  console.log(loading);
-  const [isSignUp, setIsSignUp] = useState(true);
-  const [data, setData] = useState({
+  const initialState = {
     firstname: "",
     lastname: "",
     password: "",
     username: "",
     confirmpass: "",
-  });
+  };
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.authReducer.loading);
+  console.log(loading);
+  const navigate = useNavigate();
+  const [isSignUp, setIsSignUp] = useState(true);
+  const [data, setData] = useState({ initialState });
   const [confirmPass, setConfirmPass] = useState(true);
   const handleChange = (e) => {
     // rather than put every input separately with this e.target.name  in blow we can use this function for all of our inputs
@@ -28,21 +30,17 @@ const Auth = () => {
     e.preventDefault();
     if (isSignUp) {
       data.password === data.confirmpass
-        ? dispatch(signUp(data))
+        ? dispatch(signUp(data, navigate))
         : setConfirmPass(false);
     } else {
-      dispatch(logIn(data));
+      dispatch(logIn(data, navigate));
     }
   };
 
   const resetForm = () => {
-    setConfirmPass(true);
+    setConfirmPass(confirmPass);
     setData({
-      firstname: "",
-      lastname: "",
-      password: "",
-      username: "",
-      confirmpass: "",
+      initialState,
     });
   };
   return (
