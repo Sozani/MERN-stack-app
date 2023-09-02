@@ -39,10 +39,10 @@ const PostShare = () => {
     // if there is an image with post
     if (image) {
       const data = new FormData();
-      const fileName = Date.now() + image.name;
-      data.append("name", fileName);
+      const filename = Date.now() + image.name;
+      data.append("name", filename);
       data.append("file", image);
-      newPost.image = fileName;
+      newPost.image = filename;
       console.log(newPost);
       try {
         dispatch(uploadImage(data));
