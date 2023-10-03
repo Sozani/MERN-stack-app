@@ -9,7 +9,7 @@ import {
 } from "../Controllers/UserController.js";
 import authMiddleWare from "../MiddleWare/authMiddleWare.js";
 const router = express.Router();
-router.get("/:id", getAllUsers);
+router.get("/", getAllUsers);
 router.get("/:id", getUser);
 router.put("/:id", authMiddleWare, updateUser);
 router.delete("/:id", authMiddleWare, deleteUser);

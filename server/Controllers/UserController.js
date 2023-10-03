@@ -1,6 +1,7 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+//Get all users
 export const getAllUsers = async (req, res) => {
   try {
     let users = await UserModel.find();

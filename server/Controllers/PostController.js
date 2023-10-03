@@ -37,7 +37,7 @@ export const updatePost = async (req, res) => {
     res.status(500).json(error);
   }
 };
-//Delete post
+//Delete post###########################
 
 export const deletePost = async (req, res) => {
   const id = req.params.id;
@@ -54,7 +54,7 @@ export const deletePost = async (req, res) => {
     res.status(500).json(error);
   }
 };
-//like dislike a post
+//like dislike a post########################
 export const likePost = async (req, res) => {
   const id = req.params.id;
   const { userId } = req.body;
@@ -71,7 +71,7 @@ export const likePost = async (req, res) => {
     res.status(500).json(error);
   }
 };
-// Get timeline posts
+// Get timeline posts###########################
 export const getTimelinePosts = async (req, res) => {
   const userId = req.params.id;
   try {

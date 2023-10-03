@@ -33,7 +33,7 @@ const UserSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
-
+//UserSchema will be imported when we put Users
 const UserModel = mongoose.model("Users", UserSchema);
 
 export default UserModel;
